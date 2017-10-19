@@ -10,11 +10,19 @@
 
 header 'Running script.sh...'
 
+echo "${TRAVIS_COMMIT_RANGE}"
+
 modified_ruby_files=($(git diff --name-only --diff-filter=AMR "${TRAVIS_COMMIT_RANGE}" -- *.rb))
+
+echo "${modified_ruby_files[@]}"
 
 for file in "${modified_ruby_files[@]}"; do
   [[ "${file}" == 'Casks/'* ]] && modified_casks+=("${file}") || casks_wrong_dir+=("${file}")
 done
+
+echo "${#casks_wrong_dir[@]}"
+
+echo "${#modified_casks[@]}"
 
 if [[ ${#casks_wrong_dir[@]} -gt 0 ]]; then
   odie "Casks added outside Casks directory: ${casks_wrong_dir[*]}"
