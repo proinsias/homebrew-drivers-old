@@ -5,8 +5,7 @@ sudo: true
 matrix:
   include:
     - os: osx
-      # osx_image: xcode9
-      rvm: system
+      rvm: 2.7.0
   fast_finish: true
 
 branches:
