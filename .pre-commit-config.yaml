@@ -1,0 +1,7 @@
+---
+
+repos:
+  - repo: https://github.com/proinsias/travis-lint/
+    rev: v1.0.0
+    hooks:
+      - id: travis-lint
