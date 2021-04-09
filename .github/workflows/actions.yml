@@ -1,0 +1,45 @@
+---
+
+name: GitHub Actions
+
+# yamllint disable-line rule:truthy
+on: [push, pull_request]
+
+jobs:
+
+  github-actions:
+    name: GitHub Actions
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Pre-commit autoupdate
+        uses: browniebroke/pre-commit-autoupdate-action@v1.0.0
+
+      - name: Detect secrets
+        uses: reviewdog/action-detect-secrets@master
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review  # Change reporter.
+
+      - name: markdownlint
+        uses: reviewdog/action-markdownlint@v0.1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
+
+      - name: markdown-link-check
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          check-modified-files-only: 'yes'
+          max-depth: 1
+
+      - name: yamllint
+        uses: karancode/yamllint-github-action@v2.0.0
+        with:
+          yamllint_config_filepath: '.yamllint.yml'
+          yamllint_comment: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
