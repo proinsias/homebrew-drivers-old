@@ -1,5 +1,4 @@
----
-
+# yamllint disable-line rule:document-start
 name: Pull Requests & Pushes
 
 # yamllint disable-line rule:truthy
@@ -19,7 +18,7 @@ jobs:
         uses: reviewdog/action-detect-secrets@master
         with:
           github_token: ${{ secrets.github_token }}
-          reporter: github-pr-review  # Change reporter.
+          reporter: github-pr-review            # Change reporter.
 
       - name: markdownlint
         uses: reviewdog/action-markdownlint@v0.1
@@ -30,13 +29,13 @@ jobs:
       - name: markdown-link-check
         uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
-          check-modified-files-only: 'yes'
+          check-modified-files-only: true
           max-depth: 1
 
       - name: yamllint
         uses: karancode/yamllint-github-action@v2.0.0
         with:
-          yamllint_config_filepath: '.yamllint.yml'
+          yamllint_config_filepath: .yamllint.yml
           yamllint_comment: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

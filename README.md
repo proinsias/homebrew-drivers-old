@@ -1,7 +1,8 @@
 # homebrew-drivers-old
+
 Casks of old drivers
 
-[![Build Status](https://travis-ci.org/proinsias/homebrew-drivers-old.svg?branch=master)](https://travis-ci.org/proinsias/homebrew-drivers-old)
+<!-- FIXME: Add GitHub Action badges -->
 
 # Usage
 

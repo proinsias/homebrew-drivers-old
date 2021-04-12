@@ -1,7 +1,5 @@
 ---
 
-# This extends the default conf by adjusting some options.
-
 extends: default
 
 rules:
