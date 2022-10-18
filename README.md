@@ -1,19 +1,21 @@
+<!-- textlint-disable en-capitalization -->
+
 # homebrew-drivers-old
+
+<!-- textlint-enable en-capitalization -->
 
 Casks of old drivers
 
-<!-- FIXME: Add GitHub Action badges -->
-
-# Usage
+## Usage
 
 After you install homebrew-cask, run the following command:
 
 ```sh
-$ brew tap proinsias/drivers-old
+brew tap proinsias/drivers-old
 ```
 
-You can now install the casks in this repo.
+You can now install the casks in this repository.
 
 ```sh
-$ brew cask install sat-smart-driver
+brew cask install sat-smart-driver
 ```

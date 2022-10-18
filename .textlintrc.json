@@ -15,7 +15,9 @@
     "doubled-spaces": true,
     "editorconfig": false,
     "en-capitalization": true,
-    "en-spell": true,
+    "en-spell": {
+      "personalDictionary": ["homebrew"]
+    },
     "max-number-of-lines": {
       "max": 300
     },
